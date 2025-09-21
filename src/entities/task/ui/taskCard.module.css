@@ -1,0 +1,28 @@
+.task-card {
+  display: flex;
+  justify-content: space-between;
+  background: bisque;
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.task-card-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.green {
+  background: green;
+}
+
+.red {
+  background: red;
+}
+
+.dot {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
