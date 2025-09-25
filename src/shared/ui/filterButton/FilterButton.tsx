@@ -1,12 +1,12 @@
 import type { FC, ReactNode } from 'react';
-import cls from './button.module.css';
+import cls from './filterButton.module.css';
 
-interface ButtonProps {
+interface FilterButtonProps {
   children: ReactNode;
   onClick?: () => void;
 }
 
-export const Button: FC<ButtonProps> = props => {
+export const FilterButton: FC<FilterButtonProps> = props => {
   const { children, onClick } = props;
 
   return (

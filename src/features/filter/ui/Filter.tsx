@@ -33,7 +33,9 @@ export const FilterSelect: FC<IFilterSelectProps> = props => {
           Выберите фильтр из списка
         </option>
         {options.map(item => (
-          <option value={item.value}>{item.label}</option>
+          <option value={item.value} key={item.value}>
+            {item.label}
+          </option>
         ))}
       </select>
     </div>
