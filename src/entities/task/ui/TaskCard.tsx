@@ -16,7 +16,6 @@ export const TaskCard: FC<ITaskCardProps> = memo(props => {
   const currentColor = completed ? 'green' : 'red';
 
   const handleRemove = () => action(id);
-
   return (
     <div className={`${cls['task-card']} ${className}`}>
       <div className={cls['task-card-content']}>

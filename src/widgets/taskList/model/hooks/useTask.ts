@@ -1,5 +1,5 @@
 import type { Task } from 'entities/task';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import type { Filter } from 'features/filter';
 
 const initialTask: Task[] = [
@@ -23,10 +23,13 @@ export const useTasks = () => {
       setTasks(initialTask.filter(task => !task.completed));
   };
 
-  const removeTask = (idTask: string) => {
-    const newArr = tasks.filter(task => task.id !== idTask);
-    setTasks(newArr);
-  };
+  const removeTask = useCallback(
+    (idTask: string) => {
+      const newArr = tasks.filter(task => task.id !== idTask);
+      setTasks(newArr);
+    },
+    [tasks],
+  );
 
   return {
     tasks,
