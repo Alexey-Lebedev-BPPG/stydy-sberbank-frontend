@@ -1,7 +1,7 @@
 import { type FC, memo } from 'react';
 import cls from './taskCard.module.css';
 import type { Task } from '../model/types';
-import { Button } from 'shared/ui/Button/Button';
+import { FilterButton } from 'shared/ui/filterButton/FilterButton';
 
 interface ITaskCardProps extends Task {
   action: (id: string) => void;
@@ -24,7 +24,7 @@ export const TaskCard: FC<ITaskCardProps> = memo(props => {
         <span>{currentStatus}</span>
         <div className={`${cls.dot} ${cls[currentColor]}`} />
       </div>
-      <Button onClick={handleRemove}>Delete</Button>
+      <FilterButton onClick={handleRemove}>Delete</FilterButton>
     </div>
   );
 });

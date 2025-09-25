@@ -1,6 +1,6 @@
 import type { Task } from 'entities/task';
 import { useState } from 'react';
-import type { Filter } from 'features/Filter';
+import type { Filter } from 'features/filter';
 
 const initialTask: Task[] = [
   { id: '1', title: 'Alice', completed: true },

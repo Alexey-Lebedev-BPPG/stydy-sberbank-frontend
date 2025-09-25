@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import cls from './taskWidget.module.css';
 import { TaskList, useTasks } from 'widgets/taskList';
-import { FilterSelect } from 'features/Filter';
+import { FilterSelect } from 'features/filter';
 
 interface ITaskWidgetProps {
   className?: string;
