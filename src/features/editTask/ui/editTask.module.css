@@ -1,0 +1,25 @@
+.edit-task {
+  display: flex;
+}
+
+.edit-task-block {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: fixed;
+  top: 30%;
+  left: 20%;
+  background: lightgrey;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.edit-task-section {
+  display: flex;
+  gap: 8px;
+}
+
+.error {
+  color: red;
+}

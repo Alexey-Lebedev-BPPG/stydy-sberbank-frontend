@@ -1,0 +1,24 @@
+.add-task {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: cadetblue;
+  border-radius: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-task-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.add-task-section {
+  display: flex;
+  gap: 8px;
+}
+
+.error {
+  color: red;
+}

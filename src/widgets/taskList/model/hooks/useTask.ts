@@ -1,4 +1,4 @@
-import type { Task } from 'entities/task';
+import type { CreateTask, Task } from 'entities/task';
 import { useCallback, useMemo, useState } from 'react';
 import type { Filter } from 'features/filter';
 
@@ -34,10 +34,31 @@ export const useTasks = () => {
       return tasks.filter(task => !task.completed);
   }, [tasks, localFilter]);
 
+  const addTask = useCallback(
+    (newTask: CreateTask) =>
+      setTasks(prev => [...prev, { ...newTask, id: String(prev.length + 1) }]),
+    [],
+  );
+
+  const editTask = useCallback(
+    (newTask: Task) => {
+      const currentTask = tasks.findIndex(item => item.id === newTask.id);
+
+      if (currentTask >= 0) {
+        const newArr = [...tasks];
+        newArr[currentTask] = newTask;
+        setTasks(newArr);
+      }
+    },
+    [tasks],
+  );
+
   return {
     tasks: filteredTasks,
     filter: localFilter,
     setFilter,
     removeTask,
+    addTask,
+    editTask,
   };
 };
