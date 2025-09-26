@@ -1,5 +1,5 @@
 import type { Task } from 'entities/task';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import type { Filter } from 'features/filter';
 
 const initialTask: Task[] = [
@@ -16,11 +16,6 @@ export const useTasks = () => {
 
   const setFilter = (filter: Filter) => {
     setLocalFilter(filter);
-    if (filter === 'all') setTasks(initialTask);
-    if (filter === 'completed')
-      setTasks(initialTask.filter(task => task.completed));
-    if (filter === 'incomplete')
-      setTasks(initialTask.filter(task => !task.completed));
   };
 
   const removeTask = useCallback(
@@ -31,8 +26,16 @@ export const useTasks = () => {
     [tasks],
   );
 
+  const filteredTasks = useMemo(() => {
+    if (localFilter === 'all') return tasks;
+    if (localFilter === 'completed')
+      return tasks.filter(task => task.completed);
+    if (localFilter === 'incomplete')
+      return tasks.filter(task => !task.completed);
+  }, [tasks, localFilter]);
+
   return {
-    tasks,
+    tasks: filteredTasks,
     filter: localFilter,
     setFilter,
     removeTask,
