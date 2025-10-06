@@ -1,6 +1,5 @@
 .main-page {
   display: flex;
-  min-width: 100vw;
   min-height: 100vh;
   flex-direction: column;
   font-size: 30px;
@@ -9,5 +8,6 @@
 
   h1 {
     font-weight: 900;
+    max-width: 60%;
   }
 }

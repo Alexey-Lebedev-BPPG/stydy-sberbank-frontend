@@ -1,11 +1,11 @@
 import { memo, type FC } from 'react';
 import cls from './taskList.module.css';
-import { TaskCard, type Task } from 'entities/task';
+import { TaskCard, type ITaskServer } from 'entities/task';
 
 interface ITaskList {
-  removeTask: (idTask: string) => void;
-  editTask: (newTask: Task) => void;
-  tasks?: Task[];
+  removeTask: (idTask: number) => void;
+  editTask: (newTask: ITaskServer) => void;
+  tasks?: ITaskServer[];
 }
 
 export const TaskList: FC<ITaskList> = memo(props => {

@@ -1,11 +1,11 @@
 import { type ChangeEvent, type FC, memo, useState } from 'react';
 import cls from './editTask.module.css';
-import type { Task } from 'entities/task';
+import type { ITaskServer } from 'entities/task';
 import { FilterButton } from 'shared/ui/filterButton/FilterButton';
 
 interface IEditTaskProps {
-  editTask: (newTask: Task) => void;
-  task: Task;
+  editTask: (newTask: ITaskServer) => void;
+  task: ITaskServer;
 }
 
 export const EditTask: FC<IEditTaskProps> = memo(props => {
@@ -22,7 +22,12 @@ export const EditTask: FC<IEditTaskProps> = memo(props => {
 
   const currentAddTask = () => {
     if (isErrorEditTask.length === 0 && localTitle.length > 0) {
-      editTask({ id: task.id, completed: localStatus, title: localTitle });
+      editTask({
+        id: task.id,
+        completed: localStatus,
+        title: localTitle,
+        userId: task.userId,
+      });
       handleCloseModal();
     } else {
       setIsErrorEditTask('Заполните все данные');
