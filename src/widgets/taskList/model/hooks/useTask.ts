@@ -1,16 +1,15 @@
-import type { CreateTask, Task } from 'entities/task';
-import { useCallback, useMemo, useState } from 'react';
+import {
+  useGetTasksQuery,
+  type CreateServerTask,
+  type ITaskServer,
+} from 'entities/task';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { Filter } from 'features/filter';
 
-const initialTask: Task[] = [
-  { id: '1', title: 'Alice', completed: true },
-  { id: '2', title: 'Bob', completed: false },
-  { id: '3', title: 'Charlie', completed: true },
-  { id: '4', title: 'David', completed: false },
-];
-
 export const useTasks = () => {
-  const [tasks, setTasks] = useState<Task[]>(initialTask);
+  const { data: serverTasks = [] } = useGetTasksQuery();
+
+  const [tasks, setTasks] = useState<ITaskServer[]>([]);
 
   const [localFilter, setLocalFilter] = useState<Filter>('all');
 
@@ -19,7 +18,7 @@ export const useTasks = () => {
   };
 
   const removeTask = useCallback(
-    (idTask: string) => {
+    (idTask: number) => {
       const newArr = tasks.filter(task => task.id !== idTask);
       setTasks(newArr);
     },
@@ -35,13 +34,13 @@ export const useTasks = () => {
   }, [tasks, localFilter]);
 
   const addTask = useCallback(
-    (newTask: CreateTask) =>
-      setTasks(prev => [...prev, { ...newTask, id: String(prev.length + 1) }]),
+    (newTask: CreateServerTask) =>
+      setTasks(prev => [...prev, { ...newTask, id: prev.length + 1 }]),
     [],
   );
 
   const editTask = useCallback(
-    (newTask: Task) => {
+    (newTask: ITaskServer) => {
       const currentTask = tasks.findIndex(item => item.id === newTask.id);
 
       if (currentTask >= 0) {
@@ -52,6 +51,10 @@ export const useTasks = () => {
     },
     [tasks],
   );
+
+  useEffect(() => {
+    if (tasks.length < 1) setTasks(serverTasks);
+  }, [tasks]);
 
   return {
     tasks: filteredTasks,

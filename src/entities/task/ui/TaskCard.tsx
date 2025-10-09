@@ -1,12 +1,12 @@
 import { type FC, memo } from 'react';
 import cls from './taskCard.module.css';
-import type { Task } from '../model/types';
+import type { ITaskServer } from '../model/types';
 import { FilterButton } from 'shared/ui/filterButton/FilterButton';
 import { EditTask } from 'features/editTask';
 
-interface ITaskCardProps extends Task {
-  action: (id: string) => void;
-  editTask: (newTask: Task) => void;
+interface ITaskCardProps extends ITaskServer {
+  action: (id: number) => void;
+  editTask: (newTask: ITaskServer) => void;
   className?: string;
 }
 
