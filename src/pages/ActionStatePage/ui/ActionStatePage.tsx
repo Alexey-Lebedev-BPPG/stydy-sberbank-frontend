@@ -11,7 +11,9 @@ const ActionStatePage: FC = () => {
     <div className={cls['action-state-page']}>
       <div className={cls.block}>
         <h1>ActionState page</h1>
-        <Button onClick={() => navigate('/')}>Go to Registration Page</Button>
+        <Button onClick={() => navigate('/registration_page')}>
+          Go to Registration Page
+        </Button>
       </div>
       <ActionStateForm />
     </div>
