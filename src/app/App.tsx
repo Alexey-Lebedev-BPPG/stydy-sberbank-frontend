@@ -1,7 +1,8 @@
 import './styles/index.css';
 import { StoreProvider } from './providers/StoreProvider';
 import { ToastifyProvider } from './providers/Toastify';
-import { AppRouter } from 'app/router';
+import { RouterProvider } from 'react-router';
+import { router } from '../lesson7/router';
 
 function App() {
   return (
@@ -9,7 +10,9 @@ function App() {
       {/* Old router */}
       {/* <RouterProvider router={router} /> */}
       {/* New router */}
-      <AppRouter />
+      {/* <AppRouter /> */}
+      {/* router for lesson 7 */}
+      <RouterProvider router={router} />
       <ToastifyProvider />
     </StoreProvider>
   );
