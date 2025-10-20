@@ -1,4 +1,4 @@
-import { useState, type FC } from 'react';
+import { useState, type ChangeEvent, type FC } from 'react';
 import cls from './filter.module.css';
 import type { Filter } from '../model/types/types';
 
@@ -18,7 +18,7 @@ export const FilterSelect: FC<IFilterSelectProps> = props => {
 
   const [localFilter, setLocalFilter] = useState<Filter>(filter);
 
-  const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleFilterChange = (e: ChangeEvent<HTMLSelectElement>) => {
     if (e.target.value !== localFilter) {
       setLocalFilter(e.target.value as Filter);
       setFilter(e.target.value as Filter);

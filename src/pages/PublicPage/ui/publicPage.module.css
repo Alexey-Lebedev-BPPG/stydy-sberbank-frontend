@@ -1,0 +1,38 @@
+.public-page {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.status-block {
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.link {
+  display: block;
+  background-color: rgb(212, 237, 218);
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}

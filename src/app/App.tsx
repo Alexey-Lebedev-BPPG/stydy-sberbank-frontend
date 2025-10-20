@@ -1,13 +1,15 @@
-import { RouterProvider } from 'react-router';
-import { router } from './router';
 import './styles/index.css';
 import { StoreProvider } from './providers/StoreProvider';
 import { ToastifyProvider } from './providers/Toastify';
+import { AppRouter } from 'app/router';
 
 function App() {
   return (
     <StoreProvider>
-      <RouterProvider router={router} />
+      {/* Old router */}
+      {/* <RouterProvider router={router} /> */}
+      {/* New router */}
+      <AppRouter />
       <ToastifyProvider />
     </StoreProvider>
   );
