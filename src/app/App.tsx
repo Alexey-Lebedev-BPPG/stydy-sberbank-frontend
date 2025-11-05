@@ -3,6 +3,7 @@ import { StoreProvider } from './providers/StoreProvider';
 import { ToastifyProvider } from './providers/Toastify';
 import { RouterProvider } from 'react-router';
 import { router } from '../lesson7/router';
+import { ThemeProvider } from 'shared/lib/contexts/ThemeContext/ThemeContext';
 
 function App() {
   return (
@@ -12,8 +13,10 @@ function App() {
       {/* New router */}
       {/* <AppRouter /> */}
       {/* router for lesson 7 */}
-      <RouterProvider router={router} />
-      <ToastifyProvider />
+      <ThemeProvider>
+        <RouterProvider router={router} />
+        <ToastifyProvider />
+      </ThemeProvider>
     </StoreProvider>
   );
 }

@@ -1,0 +1,95 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dialog {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.description {
+  margin: 0 0 24px 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.buttonCancel {
+  composes: button;
+  background: #f5f5f5;
+  color: #333;
+}
+
+.buttonCancel:hover {
+  background: #e0e0e0;
+}
+
+.buttonConfirm {
+  composes: button;
+  background: #ff4444;
+  color: white;
+}
+
+.buttonConfirm:hover {
+  background: #cc0000;
+}
+
+.dark.overlay {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.dark .dialog {
+  background: #333;
+  color: white;
+}
+
+.dark .title {
+  color: white;
+}
+
+.dark .description {
+  color: #ccc;
+}
+
+.dark .buttonCancel {
+  background: #555;
+  color: white;
+}
+
+.dark .buttonCancel:hover {
+  background: #666;
+}
